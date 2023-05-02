@@ -60,7 +60,7 @@ module.exports = {
         },
       ],
       body: [
-        "0.875rem",
+        "1rem",
         {
           fontWeight: "400",
         },
