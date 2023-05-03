@@ -6,6 +6,7 @@ import Span from "../span/index.component";
 
 interface WordDisplayProps {
   numWords: number;
+  maxWordLength: number;
   wordDisplayStyle?: string;
 }
 
@@ -14,10 +15,8 @@ interface Letter {
   character: string;
 }
 
-const DEFAULT_NUM_WORDS = 200;
-
-const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle }) => {
-  const words: string[] = randomWords(numWords);
+const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle, maxWordLength }) => {
+  const words: string[] = randomWords({ exactly: numWords, maxLength: maxWordLength });
   const [letterList, setLetterList] = useState<Letter[]>([]);
 
   // split the words into letters

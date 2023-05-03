@@ -25,6 +25,7 @@ function App() {
               </div>
               <WordDisplay
                 numWords={200}
+                maxWordLength={5}
                 wordDisplayStyle="px-12 sm:px-24 lg:px-64 text-justify"
               />
             </div>
