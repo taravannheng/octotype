@@ -1,13 +1,16 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
+
+import WordCounterContext from '../../contexts/word-counter-context';
 
 interface WordCounterProps {
   style?: string;
-  wordCount: number;
 }
 
-const WordCounter: FC<WordCounterProps> = ({ style, wordCount }) => {
+const WordCounter: FC<WordCounterProps> = ({ style }) => {
+  const { wordCounter } = useContext(WordCounterContext);
+
   return (
-    <p className="word-counter text-h4 flex justify-center items-center mb-4 text-neutral-light">WORD COUNT: {wordCount}</p>
+    <p className={`word-counter text-h4 flex justify-center items-center mb-4 text-neutral-light ${style}`}>WORD COUNT: {wordCounter}</p>
   )
 }
 
