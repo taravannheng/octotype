@@ -1,4 +1,5 @@
 import { FC, useState, useContext, useEffect, useRef } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
 import WordCounterContext from "../../contexts/word-counter-context";
@@ -68,7 +69,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
     >
       {wrongKeys.map((key: string, index: number) => {
         return (
-          <span className="text-status-error">{key}</span>
+          <span key={uuidv4()} className="text-status-error">{key}</span>
         );
       })}
       {text}
