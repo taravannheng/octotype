@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
 import WordCounterContext from "../../contexts/word-counter-context";
 import TimerContext from "../../contexts/timer-context";
+import FirstKeyPressedContext from "../../contexts/first-key-pressed-context";
+
 import { isLetter } from "../../utils/helpers";
 
 interface SpanProps {
@@ -20,6 +22,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const { currentLetterIndex, setCurrentLetterIndex } = useContext(
     CurrentLetterIndexContext
   );
+  const { isFirstKeyPressed, setIsFirstKeyPressed } = useContext(FirstKeyPressedContext);
   const { timer } = useContext(TimerContext);
   const { setWordCounter } = useContext(WordCounterContext);
   const spanRef = useRef<HTMLSpanElement>(null);
@@ -30,6 +33,10 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
 
     if (pressedKey === text) {
       setIsPressed(true);
+
+      if (currentLetterIndex === 0) {
+        setIsFirstKeyPressed(true)
+      }
 
       setCurrentLetterIndex(
         (prevCurrentLetterIndex: number) => prevCurrentLetterIndex + 1
