@@ -27,7 +27,7 @@ module.exports = {
       "neutral-grey-3": "#9d9d9d",
       "neutral-grey-4": "#555",
       "neutral-dark": "#262626",
-      "status-error": "#ef084e",
+      "status-error": "#ad0022",
       "status-warning": "#ffeb00",
       "status-success": "#00d500",
     },
