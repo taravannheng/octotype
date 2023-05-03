@@ -1,3 +1,4 @@
+import Dialog from "./components/dialog/index.component";
 import WordCounter from "./components/word-counter/index.component";
 import Timer from "./components/timer/index.component";
 import WordDisplay from "./components/word-display/index.component";
@@ -12,6 +13,7 @@ function App() {
       <WordCounterProvider>
         <TimerProvider>
           <div className="App">
+            <Dialog titleText="Your WPM is" />
             <Header headerStyle="mb-24" />
             <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
               <Timer />
