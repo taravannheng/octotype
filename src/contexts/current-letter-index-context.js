@@ -3,13 +3,13 @@ import { useState, createContext } from "react";
 const CurrentLetterIndexContext = createContext();
 
 const CurrentLetterIndexContextProvider = ({ children }) => {
-  const [currentLetterIndexState, setCurrentLetterIndexState] = useState(0);
+  const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
 
   return (
     <CurrentLetterIndexContext.Provider
       value={{
-        currentLetterIndexState,
-        setCurrentLetterIndexState,
+        currentLetterIndex,
+        setCurrentLetterIndex,
       }}
     >
       {children}
