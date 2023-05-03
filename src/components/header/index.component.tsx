@@ -7,7 +7,7 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ headerStyle }) => {
-  return <div className={`flex justify-center align-items bg-primary ${ headerStyle }`}>
+  return <div className={`flex justify-center align-items pt-16 ${ headerStyle }`}>
     <img src={Logo} alt="logo" className="h-24 sm:h-24 xl:24" />
   </div>;
 };
