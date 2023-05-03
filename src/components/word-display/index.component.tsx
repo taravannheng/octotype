@@ -1,26 +1,23 @@
 import randomWords from "random-words";
-import { FC, useEffect, useRef } from "react";
-import { Dispatch, SetStateAction } from "react";
+import { FC, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
+import Span from "../span/index.component";
 
 interface WordDisplayProps {
   numWords: number;
-  setLetterList: Dispatch<SetStateAction<Letter[]>>;
-  keyHandler: (event: any) => void;
-  letterList: Letter[];
 }
 
 interface Letter {
   lastLetter: boolean;
   character: string;
-  status: "pressed" | "unpressed";
 }
 
 const DEFAULT_NUM_WORDS = 200;
 
 const WordDisplay: FC<WordDisplayProps> = (props) => {
   const words: string[] = randomWords(props.numWords);
-  const containerRef = useRef<HTMLParagraphElement>(null);
+  const [letterList, setLetterList] = useState<Letter[]>([]);
 
   // split the words into letters
   let tempLetterList: Letter[] = [];
@@ -31,7 +28,6 @@ const WordDisplay: FC<WordDisplayProps> = (props) => {
       const letterObject: Letter = {
         lastLetter: letterIndex === word.length - 1 && true,
         character: letter,
-        status: "unpressed",
       };
 
       tempLetterList = [...tempLetterList, letterObject];
@@ -44,34 +40,30 @@ const WordDisplay: FC<WordDisplayProps> = (props) => {
         {
           lastLetter: false,
           character: " ",
-          status: "unpressed",
         },
       ];
     }
   });
 
+  
+
   useEffect(() => {
-    containerRef.current!.focus();
-    props.setLetterList(tempLetterList);
+    setLetterList(tempLetterList);
   }, []);
 
   return (
     <p
-      ref={containerRef}
-      onKeyDown={props.keyHandler}
-      tabIndex={0}
       className="text-h3 outline-none"
     >
-      {props.letterList.map((letter: any, index: any) => {
+      {letterList.map((letter: any, index: any) => {
         return (
-          <span
+          <Span
+            index={index}
+            isLastLetter={letter.lastLetter}
             key={uuidv4()}
-            className={`text-neutral-grey-4 ${
-              letter.status === "unpressed" ? "text-grey-4" : "text-primary"
-            }`}
-          >
-            {letter.character}
-          </span>
+            spanStyle='text-neutral-grey-4'
+            text={letter.character}
+          />
         );
       })}
     </p>
