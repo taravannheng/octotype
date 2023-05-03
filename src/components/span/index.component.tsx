@@ -2,6 +2,7 @@ import { FC, useState, useContext, useEffect, useRef } from "react";
 
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
 import WordCounterContext from "../../contexts/word-counter-context";
+import { isLetter } from "../../utils/helpers";
 
 interface SpanProps {
   spanStyle: string;
@@ -11,6 +12,7 @@ interface SpanProps {
 }
 
 const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
+  const [wrongKeys, setWrongKeys] = useState<string[]>([]);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isPressed, setIsPressed] = useState<boolean>(false);
   const { currentLetterIndex, setCurrentLetterIndex } = useContext(
@@ -37,6 +39,14 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
 
       spanRef.current!.blur();
     }
+
+    if (pressedKey !== text) {
+      // add wrong letters to the wrong letter array
+      if (isLetter(pressedKey)) {
+        const tempWrongKeys = [...wrongKeys, pressedKey];
+        setWrongKeys(tempWrongKeys);
+      }
+    }
   };
 
   useEffect(() => {
@@ -56,6 +66,11 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
         isActive && "text-neutral-light"
       }  ${isPressed && "text-primary"}`}
     >
+      {wrongKeys.map((key: string, index: number) => {
+        return (
+          <span className="text-status-error">{key}</span>
+        );
+      })}
       {text}
     </span>
   );
