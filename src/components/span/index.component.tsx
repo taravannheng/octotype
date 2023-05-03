@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
 import WordCounterContext from "../../contexts/word-counter-context";
+import TimerContext from "../../contexts/timer-context";
 import { isLetter } from "../../utils/helpers";
 
 interface SpanProps {
@@ -19,6 +20,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const { currentLetterIndex, setCurrentLetterIndex } = useContext(
     CurrentLetterIndexContext
   );
+  const { timer } = useContext(TimerContext);
   const { setWordCounter } = useContext(WordCounterContext);
   const spanRef = useRef<HTMLSpanElement>(null);
 
@@ -54,9 +56,11 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
     if (currentLetterIndex === index) {
       setIsActive(true);
 
-      spanRef.current!.focus();
+      if (timer !== 0) {
+        spanRef.current!.focus();
+      }
     }
-  }, [currentLetterIndex, index]);
+  }, [currentLetterIndex, index, timer]);
 
   return (
     <span
