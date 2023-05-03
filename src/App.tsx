@@ -13,11 +13,11 @@ function App() {
         <TimerProvider>
           <div className="App">
             <Header headerStyle="mb-24" />
-            <div className="flex justify-between items-center px-12 sm:px-24 mb-4">
+            <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
               <Timer />
               <WordCounter />
             </div>
-            <WordDisplay numWords={200} wordDisplayStyle="px-12 sm:px-24 text-justify" />
+            <WordDisplay numWords={200} wordDisplayStyle="px-12 sm:px-24 lg:px-64 text-justify" />
           </div>
         </TimerProvider>
       </WordCounterProvider>
