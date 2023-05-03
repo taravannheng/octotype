@@ -6,6 +6,7 @@ import Span from "../span/index.component";
 
 interface WordDisplayProps {
   numWords: number;
+  wordDisplayStyle?: string;
 }
 
 interface Letter {
@@ -15,8 +16,8 @@ interface Letter {
 
 const DEFAULT_NUM_WORDS = 200;
 
-const WordDisplay: FC<WordDisplayProps> = (props) => {
-  const words: string[] = randomWords(props.numWords);
+const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle }) => {
+  const words: string[] = randomWords(numWords);
   const [letterList, setLetterList] = useState<Letter[]>([]);
 
   // split the words into letters
@@ -53,7 +54,7 @@ const WordDisplay: FC<WordDisplayProps> = (props) => {
 
   return (
     <p
-      className="text-h3 outline-none"
+      className={`text-h3 outline-none ${wordDisplayStyle}`}
     >
       {letterList.map((letter: any, index: any) => {
         return (
