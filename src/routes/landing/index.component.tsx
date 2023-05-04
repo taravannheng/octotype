@@ -13,7 +13,7 @@ interface LandingPageProps {
 const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = '' }) => {
   return (
     <div className={`landing ${landingPageStyles}`}>
-      <Header headerStyle="mb-24" />
+      <Header headerStyle="mb-36" />
       <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
         <Timer />
         <InstructionText text="Type the first letter to start..." instructionTextStyle="animate-slow-blink" />
