@@ -56,7 +56,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
 
     if (pressedKey !== text) {
       // add wrong letters to the wrong letter array
-      if (isLetter(pressedKey)) {
+      if (isLetter(pressedKey) && pressedKey !== ' ') {
         const tempWrongKeys = [...wrongKeys, pressedKey];
         setWrongKeys(tempWrongKeys);
       }
