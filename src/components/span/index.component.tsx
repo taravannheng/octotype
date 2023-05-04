@@ -61,10 +61,14 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
 
     if (pressedKey !== text) {
       // add wrong letters to the wrong letter array
-      console.log(pressedKey);
       if (isLetter(pressedKey) && pressedKey !== " ") {
         const tempWrongKeys = [...wrongKeys, pressedKey];
         setWrongKeys(tempWrongKeys);
+      }
+
+      // if backspace -> remove the last wrong key from the array
+      if (pressedKey.toString() === 'Backspace') {
+        setWrongKeys(prevWrongKeys => [...prevWrongKeys.slice(0, -1)])
       }
     }
   };
