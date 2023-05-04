@@ -13,7 +13,6 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   const [timerColor, setTimerColor] = useState("text-neutral-light");
 
   useEffect(() => {
-    console.log(isFirstKeyPressed)
     if (isFirstKeyPressed) {
       const interval = setInterval(() => {
         // set to 41 and 21 because react doesn't re-render immediately
