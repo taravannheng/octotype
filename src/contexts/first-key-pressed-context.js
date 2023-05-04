@@ -1,9 +1,11 @@
 import { useState, createContext } from "react";
 
+import { INITIAL_CONFIG } from "../utils/constants";
+
 const FirstKeyPressedContext = createContext();
 
 const FirstKeyPressedProvider = ({ children }) => {
-  const [isFirstKeyPressed, setIsFirstKeyPressed] = useState(false);
+  const [isFirstKeyPressed, setIsFirstKeyPressed] = useState(INITIAL_CONFIG.FIRST_KEY_PRESSED);
 
   return (
     <FirstKeyPressedContext.Provider

@@ -1,9 +1,11 @@
 import { useState, createContext } from "react";
 
+import { INITIAL_CONFIG } from "../utils/constants";
+
 const AccuracyContext = createContext();
 
 const AccuracyProvider = ({ children }) => {
-  const [accuracy, setAccuracy] = useState(0);
+  const [accuracy, setAccuracy] = useState(INITIAL_CONFIG.ACCURACY);
 
   return (
     <AccuracyContext.Provider

@@ -1,10 +1,11 @@
 import { useState, createContext } from "react";
 
-const INITIAL_TIMER_VALUE = 60; // value is in seconds
+import { INITIAL_CONFIG } from "../utils/constants";
+
 const TimerContext = createContext();
 
 const TimerProvider = ({ children }) => {
-  const [timer, setTimer] = useState(INITIAL_TIMER_VALUE);
+  const [timer, setTimer] = useState(INITIAL_CONFIG.TIMER);
 
   return (
     <TimerContext.Provider
