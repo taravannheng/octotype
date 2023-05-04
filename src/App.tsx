@@ -1,37 +1,45 @@
-import Dashboard from "./components/dashboard/index.component";
-import WordCounter from "./components/word-counter/index.component";
-import Timer from "./components/timer/index.component";
-import WordDisplay from "./components/word-display/index.component";
-import Header from "./components/header/index.component";
+import React, { FC, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import LandingPage from "./routes/landing/index.component";
 import { CurrentLetterIndexContextProvider } from "./contexts/current-letter-index-context";
 import { WordCounterProvider } from "./contexts/word-counter-context";
 import { TimerProvider } from "./contexts/timer-context";
 import { FirstKeyPressedProvider } from "./contexts/first-key-pressed-context";
+import { ROUTES } from "./utils/constants";
+import SummaryPagePrivate from "./routes/private-summary/index.component";
 
-function App() {
+// LAZY LOADING
+const SummaryPage = React.lazy(
+  () => import("./routes/summary/index.component")
+);
+
+const App: FC = () => {
   return (
     <CurrentLetterIndexContextProvider>
       <WordCounterProvider>
         <TimerProvider>
           <FirstKeyPressedProvider>
-            <div className="App">
-              <Header headerStyle="mb-24" />
-              <Dashboard dashboardStyle="flex items-center flex-row px-12 sm:px-24 lg:px-64 mb-12" />
-              <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
-                <Timer />
-                <WordCounter />
-              </div>
-              <WordDisplay
-                numWords={200}
-                maxWordLength={5}
-                wordDisplayStyle="px-12 sm:px-24 lg:px-64 text-justify"
-              />
-            </div>
+            <Router>
+              <Routes>
+                <Route path={ROUTES.LANDING} element={<LandingPage />} />
+                <Route path={ROUTES.SUMMARY} element={<SummaryPagePrivate />}>
+                  <Route
+                    path={ROUTES.SUMMARY}
+                    element={
+                      <Suspense fallback={"Loading..."}>
+                        <SummaryPage />
+                      </Suspense>
+                    }
+                  />
+                </Route>
+              </Routes>
+            </Router>
           </FirstKeyPressedProvider>
         </TimerProvider>
       </WordCounterProvider>
     </CurrentLetterIndexContextProvider>
   );
-}
+};
 
 export default App;
