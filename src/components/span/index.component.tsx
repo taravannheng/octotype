@@ -56,6 +56,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
 
     if (pressedKey !== text) {
       // add wrong letters to the wrong letter array
+      console.log(pressedKey)
       if (isLetter(pressedKey) && pressedKey !== ' ') {
         const tempWrongKeys = [...wrongKeys, pressedKey];
         setWrongKeys(tempWrongKeys);
@@ -78,14 +79,14 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       onKeyDown={keyHandler}
       ref={spanRef}
       tabIndex={index}
-      className={`outline-none ${spanStyle} ${
+      className={`outline-none pointer-events-none ${spanStyle} ${
         isActive && "text-neutral-light"
       }  ${isPressed && "text-primary"}`}
     >
       {wrongKeys.map((key: string, index: number) => {
         if (index < 10) {
           return (
-            <span key={uuidv4()} className="text-status-error">{key}</span>
+            <span key={uuidv4()} className="pointer-events-none text-status-error">{key}</span>
           );
         }
       })}
