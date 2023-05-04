@@ -80,7 +80,8 @@ module.exports = {
     },
     extend: {
       animation: {
-        blink: "blink 0.5s infinite",
+        'slow-blink': "blink 2s infinite",
+        'fast-blink': "blink 0.5s infinite",
       },
       keyframes: {
         blink: {

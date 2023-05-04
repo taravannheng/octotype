@@ -53,7 +53,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
 
   return (
     <span className={`text-h3 text-neutral-light ${timerColor} ${timerStyle}`}>
-      {timer} {!isFirstKeyPressed && <span className="text-neutral-light text-body">Type the first letter to start...</span>}
+      {timer} {!isFirstKeyPressed && <span className="text-neutral-light text-body animate-slow-blink">Type the first letter to start...</span>}
     </span>
   );
 };

@@ -106,7 +106,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       })}
       <span className="relative mr-[2px] overflow-hidden">
         {(isActive && !isPressed) && <span
-          className="absolute top-0 left-[-4px] w-1 h-7 pt-2 bg-neutral-light rounded-full animate-blink"
+          className="absolute top-0 left-[-4px] w-1 h-7 pt-2 bg-neutral-light rounded-full animate-fast-blink"
         ></span>}
         {text}
       </span>
