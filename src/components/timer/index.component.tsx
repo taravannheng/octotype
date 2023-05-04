@@ -1,7 +1,9 @@
 import { FC, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import TimerContext from "../../contexts/timer-context";
 import FirstKeyPressedContext from "../../contexts/first-key-pressed-context";
+import { ROUTES } from "../../utils/constants";
 
 interface TimerProps {
   timerStyle?: string;
@@ -11,6 +13,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   const { timer, setTimer } = useContext(TimerContext);
   const { isfirstKeyPressed: isFirstKeyPressed } = useContext(FirstKeyPressedContext);
   const [timerColor, setTimerColor] = useState("text-neutral-light");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isFirstKeyPressed) {
@@ -29,6 +32,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   
       if (timer === 0) {
         clearInterval(interval);
+        navigate(ROUTES.SUMMARY);
       }
   
       return () => clearInterval(interval);
