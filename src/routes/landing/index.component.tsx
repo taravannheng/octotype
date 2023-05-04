@@ -4,6 +4,7 @@ import WordCounter from "../../components/word-counter/index.component";
 import Timer from "../../components/timer/index.component";
 import WordDisplay from "../../components/word-display/index.component";
 import Header from "../../components/header/index.component";
+import InstructionText from "../../components/instruction-text/index.component";
 
 interface LandingPageProps {
   landingPageStyles?: string;
@@ -15,6 +16,7 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = '' }) => {
       <Header headerStyle="mb-24" />
       <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
         <Timer />
+        <InstructionText text="Type the first letter to start..." instructionTextStyle="animate-slow-blink" />
         <WordCounter />
       </div>
       <WordDisplay
