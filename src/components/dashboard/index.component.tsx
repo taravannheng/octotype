@@ -1,7 +1,6 @@
 import { FC, Fragment, useContext } from "react";
 
 import Card from "../card/index.component";
-import TimerContext from "../../contexts/timer-context";
 import WordCounterContext from "../../contexts/word-counter-context";
 
 interface DashboardProps {
@@ -9,12 +8,11 @@ interface DashboardProps {
 }
 
 const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "" }) => {
-  const { timer } = useContext(TimerContext);
   const { wordCounter } = useContext(WordCounterContext);
 
   return (
     <Fragment>
-      {timer === 0 && (
+      {(
         <div className={`dashboard ${dashboardStyle}`}>
           <div className="wpm mr-16">
             <Card
