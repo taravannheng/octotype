@@ -21,7 +21,7 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = '' }) => {
   const { setTimer } = useContext(TimerContext);
   const { setAccuracy } = useContext(AccuracyContext);
   const { setCurrentLetterIndex } = useContext(CurrentLetterIndexContext);
-  const { setFirstKeyPressed } = useContext(FirstKeyPressedContext);
+  const { setIsFirstKeyPressed } = useContext(FirstKeyPressedContext);
   const { setTotalLetterTyped } = useContext(TotalLetterTypedContext);
   const { setWordCounter } = useContext(WordCounterContext);
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = '' }) => {
     setTimer(INITIAL_CONFIG.TIMER);
     setAccuracy(INITIAL_CONFIG.ACCURACY);
     setCurrentLetterIndex(INITIAL_CONFIG.CURRENT_LETTER_INDEX);
-    setFirstKeyPressed(INITIAL_CONFIG.FIRST_KEY_PRESSED);
+    setIsFirstKeyPressed(INITIAL_CONFIG.FIRST_KEY_PRESSED);
     setTotalLetterTyped(INITIAL_CONFIG.TOTAL_LETTER_TYPED);
     setWordCounter(INITIAL_CONFIG.WORD_COUNTER);
 
