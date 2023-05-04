@@ -83,14 +83,6 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
     }
   }, [currentLetterIndex, index, timer, wrongKeys]);
 
-  useEffect(() => {
-    if (!isActive) {
-    }
-
-    if (isActive && !isFirstKeyPressed) {
-    }
-  }, [isActive, isFirstKeyPressed]);
-
   return (
     <span
       onKeyDown={keyHandler}
