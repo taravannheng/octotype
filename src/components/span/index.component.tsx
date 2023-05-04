@@ -23,7 +23,9 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const { currentLetterIndex, setCurrentLetterIndex } = useContext(
     CurrentLetterIndexContext
   );
-  const { isFirstKeyPressed, setIsFirstKeyPressed } = useContext(FirstKeyPressedContext);
+  const { isFirstKeyPressed, setIsFirstKeyPressed } = useContext(
+    FirstKeyPressedContext
+  );
   const { setTotalLetterTyped } = useContext(TotalLetterTypedContext);
   const { timer } = useContext(TimerContext);
   const { setWordCounter } = useContext(WordCounterContext);
@@ -33,13 +35,15 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const keyHandler = (event: any) => {
     const pressedKey = event.key;
 
-    setTotalLetterTyped((prevTotalLetterTyped: number) => prevTotalLetterTyped + 1);
+    setTotalLetterTyped(
+      (prevTotalLetterTyped: number) => prevTotalLetterTyped + 1
+    );
 
     if (pressedKey === text) {
       setIsPressed(true);
 
       if (currentLetterIndex === 0) {
-        setIsFirstKeyPressed(true)
+        setIsFirstKeyPressed(true);
       }
 
       setCurrentLetterIndex(
@@ -51,13 +55,14 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
         setWordCounter((prevWordCounter: number) => prevWordCounter + 1);
       }
 
+      setIsActive(false);
       spanRef.current!.blur();
     }
 
     if (pressedKey !== text) {
       // add wrong letters to the wrong letter array
-      console.log(pressedKey)
-      if (isLetter(pressedKey) && pressedKey !== ' ') {
+      console.log(pressedKey);
+      if (isLetter(pressedKey) && pressedKey !== " ") {
         const tempWrongKeys = [...wrongKeys, pressedKey];
         setWrongKeys(tempWrongKeys);
       }
@@ -72,25 +77,43 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
         spanRef.current!.focus();
       }
     }
-  }, [currentLetterIndex, index, timer]);
+  }, [currentLetterIndex, index, timer, wrongKeys]);
+
+  useEffect(() => {
+    if (!isActive) {
+    }
+
+    if (isActive && !isFirstKeyPressed) {
+    }
+  }, [isActive, isFirstKeyPressed]);
 
   return (
     <span
       onKeyDown={keyHandler}
       ref={spanRef}
       tabIndex={index}
-      className={`outline-none pointer-events-none ${spanStyle} ${
+      className={`relative outline-none pointer-events-none ${spanStyle} ${
         isActive && "text-neutral-light"
       }  ${isPressed && "text-primary"}`}
     >
       {wrongKeys.map((key: string, index: number) => {
         if (index < 10) {
           return (
-            <span key={uuidv4()} className="pointer-events-none text-status-error">{key}</span>
+            <span
+              key={uuidv4()}
+              className="pointer-events-none text-status-error"
+            >
+              {key}
+            </span>
           );
         }
       })}
-      {text}
+      <span className="relative mr-[2px] overflow-hidden">
+        {(isActive && !isPressed) && <span
+          className="absolute top-0 left-[-4px] w-1 h-7 pt-2 bg-neutral-light rounded-full animate-blink"
+        ></span>}
+        {text}
+      </span>
     </span>
   );
 };
