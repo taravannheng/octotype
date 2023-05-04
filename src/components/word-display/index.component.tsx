@@ -52,8 +52,8 @@ const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle, maxWord
   }, []);
 
   return (
-    <p
-      className={`text-h3 outline-none ${wordDisplayStyle}`}
+    <div
+      className={`text-h3 outline-none overflow-hidden ${wordDisplayStyle}`}
     >
       {letterList.map((letter: any, index: any) => {
         return (
@@ -66,7 +66,7 @@ const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle, maxWord
           />
         );
       })}
-    </p>
+    </div>
   );
 };
 

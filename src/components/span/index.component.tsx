@@ -83,9 +83,11 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       }  ${isPressed && "text-primary"}`}
     >
       {wrongKeys.map((key: string, index: number) => {
-        return (
-          <span key={uuidv4()} className="text-status-error">{key}</span>
-        );
+        if (index < 10) {
+          return (
+            <span key={uuidv4()} className="text-status-error">{key}</span>
+          );
+        }
       })}
       {text}
     </span>
