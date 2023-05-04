@@ -20,18 +20,18 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "" }) => {
             <Card
               titleText="Word Per Minute"
               descriptionText={wordCounter}
-              descriptionStyle="text-neutral-light"
-              titleStyle="text-neutral-light"
-              cardStyle="bg-primary"
+              descriptionStyle="text-primary"
+              titleStyle="text-neutral-dark text-h4"
+              cardStyle="bg-neutral-grey-1"
             />
           </div>
           <div className="accuracy flex-1">
             <Card
               titleText="Accuracy"
               descriptionText={`${accuracy}%`}
-              descriptionStyle="text-neutral-light"
-              titleStyle="text-neutral-light"
-              cardStyle="bg-primary"
+              descriptionStyle="text-primary"
+              titleStyle="text-neutral-dark text-h4"
+              cardStyle="bg-neutral-grey-1"
             />
           </div>
         </div>
