@@ -15,23 +15,23 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "" }) => {
   return (
     <Fragment>
       {(
-        <div className={`dashboard ${dashboardStyle}`}>
-          <div className="wpm mr-16">
+        <div className={`dashboard flex ${dashboardStyle}`}>
+          <div className="wpm flex-1 mr-16">
             <Card
               titleText="Word Per Minute"
               descriptionText={wordCounter}
               descriptionStyle="text-neutral-light"
               titleStyle="text-neutral-light"
-              cardStyle="bg-primary w-80"
+              cardStyle="bg-primary"
             />
           </div>
-          <div className="accuracy">
+          <div className="accuracy flex-1">
             <Card
               titleText="Accuracy"
               descriptionText={`${accuracy}%`}
               descriptionStyle="text-neutral-light"
               titleStyle="text-neutral-light"
-              cardStyle="bg-primary w-80"
+              cardStyle="bg-primary"
             />
           </div>
         </div>
