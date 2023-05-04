@@ -6,6 +6,8 @@ import { CurrentLetterIndexContextProvider } from "./contexts/current-letter-ind
 import { WordCounterProvider } from "./contexts/word-counter-context";
 import { TimerProvider } from "./contexts/timer-context";
 import { FirstKeyPressedProvider } from "./contexts/first-key-pressed-context";
+import { TotalLetterTypedProvider } from "./contexts/total-letter-typed";
+import { AccuracyProvider } from "./contexts/accuracy-context";
 import { ROUTES } from "./utils/constants";
 import SummaryPagePrivate from "./routes/private-summary/index.component";
 
@@ -20,21 +22,28 @@ const App: FC = () => {
       <WordCounterProvider>
         <TimerProvider>
           <FirstKeyPressedProvider>
-            <Router>
-              <Routes>
-                <Route path={ROUTES.LANDING} element={<LandingPage />} />
-                <Route path={ROUTES.SUMMARY} element={<SummaryPagePrivate />}>
-                  <Route
-                    path={ROUTES.SUMMARY}
-                    element={
-                      <Suspense fallback={"Loading..."}>
-                        <SummaryPage />
-                      </Suspense>
-                    }
-                  />
-                </Route>
-              </Routes>
-            </Router>
+            <TotalLetterTypedProvider>
+              <AccuracyProvider>
+                <Router>
+                  <Routes>
+                    <Route path={ROUTES.LANDING} element={<LandingPage />} />
+                    <Route
+                      path={ROUTES.SUMMARY}
+                      element={<SummaryPagePrivate />}
+                    >
+                      <Route
+                        path={ROUTES.SUMMARY}
+                        element={
+                          <Suspense fallback={"Loading..."}>
+                            <SummaryPage />
+                          </Suspense>
+                        }
+                      />
+                    </Route>
+                  </Routes>
+                </Router>
+              </AccuracyProvider>
+            </TotalLetterTypedProvider>
           </FirstKeyPressedProvider>
         </TimerProvider>
       </WordCounterProvider>

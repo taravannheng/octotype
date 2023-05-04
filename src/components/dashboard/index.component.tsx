@@ -2,6 +2,7 @@ import { FC, Fragment, useContext } from "react";
 
 import Card from "../card/index.component";
 import WordCounterContext from "../../contexts/word-counter-context";
+import AccuracyContext from "../../contexts/accuracy-context";
 
 interface DashboardProps {
   dashboardStyle?: string;
@@ -9,6 +10,7 @@ interface DashboardProps {
 
 const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "" }) => {
   const { wordCounter } = useContext(WordCounterContext);
+  const { accuracy } = useContext(AccuracyContext);
 
   return (
     <Fragment>
@@ -26,7 +28,7 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "" }) => {
           <div className="accuracy">
             <Card
               titleText="Accuracy"
-              descriptionText="20"
+              descriptionText={`${accuracy}%`}
               descriptionStyle="text-neutral-light"
               titleStyle="text-neutral-light"
               cardStyle="bg-primary w-80"

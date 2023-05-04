@@ -8,7 +8,7 @@ const FirstKeyPressedProvider = ({ children }) => {
   return (
     <FirstKeyPressedContext.Provider
       value={{
-        isfirstKeyPressed: isFirstKeyPressed,
+        isFirstKeyPressed,
         setIsFirstKeyPressed,
       }}
     >

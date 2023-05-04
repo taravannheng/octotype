@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
 import WordCounterContext from "../../contexts/word-counter-context";
 import TimerContext from "../../contexts/timer-context";
+import TotalLetterTypedContext from "../../contexts/total-letter-typed";
 import FirstKeyPressedContext from "../../contexts/first-key-pressed-context";
 
 import { isLetter } from "../../utils/helpers";
@@ -23,6 +24,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
     CurrentLetterIndexContext
   );
   const { isFirstKeyPressed, setIsFirstKeyPressed } = useContext(FirstKeyPressedContext);
+  const { setTotalLetterTyped } = useContext(TotalLetterTypedContext);
   const { timer } = useContext(TimerContext);
   const { setWordCounter } = useContext(WordCounterContext);
   const spanRef = useRef<HTMLSpanElement>(null);
@@ -30,6 +32,8 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   // TODO: update the below event type to Keyboard Event
   const keyHandler = (event: any) => {
     const pressedKey = event.key;
+
+    setTotalLetterTyped((prevTotalLetterTyped: number) => prevTotalLetterTyped + 1);
 
     if (pressedKey === text) {
       setIsPressed(true);
