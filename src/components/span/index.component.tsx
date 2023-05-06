@@ -92,7 +92,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
         isActive && "text-neutral-light"
       }  ${isPressed && "text-primary"}`}
     >
-      <input type="text" className="w-0" autoFocus />
+      <input type="text" className="w-[1px] bg-neutral-dark" autoFocus />
       {wrongKeys.map((key: string, index: number) => {
         if (index < 10) {
           return (
