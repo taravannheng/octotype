@@ -8,7 +8,7 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ modalStyle = '', children }) => {
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 w-screen h-screen ${modalStyle}`}>
-      <div className="bg-neutral-light p-6 rounded-md shadow-lg w-full h-full">
+      <div className="bg-neutral-dark p-6 rounded-md shadow-lg w-full h-full">
         <div className={`flex justify-center items-center flex-col w-full h-full`}>
           {children}
         </div>
