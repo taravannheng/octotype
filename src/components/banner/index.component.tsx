@@ -40,7 +40,7 @@ const Banner: FC<BannerProps> = ({
           {iconSrc && (
             <FontAwesomeIcon
               icon={iconSrc}
-              className={`banner__icon h-[12px] w-[12px] bg-neutral-grey-2 text-neutral-dark p-2 rounded-full mr-4 ${iconStyle}`}
+              className={`banner__icon h-[12px] w-[12px] min-w-[12px] max-w-[12px] max-h-[12px] min-h-[12px] bg-neutral-grey-2 text-neutral-dark p-2 rounded-full mr-4 ${iconStyle}`}
             />
           )}
           <div className="banner__text">
@@ -56,7 +56,7 @@ const Banner: FC<BannerProps> = ({
           {closeIconSrc && (
             <FontAwesomeIcon
               icon={closeIconSrc}
-              className={`banner__icon h-[16px] w-[16px] absolute right-2 top-2 text-neutral-dark cursor-pointer ${closeIconStyle}`}
+              className={`banner__icon h-[16px] w-[16px] min-w-[16px] max-w-[16px] max-h-[16px] min-h-[16px] absolute right-2 top-2 text-neutral-dark cursor-pointer ${closeIconStyle}`}
               onClick={closeHandler}
             />
           )}
