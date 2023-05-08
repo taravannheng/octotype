@@ -34,27 +34,27 @@ const Banner: FC<BannerProps> = ({
   return (
     <Fragment>
       {isOpen && (
-        <div className={`banner ${bannerStyle}`}>
+        <div className={`banner flex flex-row relative bg-neutral-light p-4 relative w-full rounded ${bannerStyle}`}>
           {iconSrc && (
             <FontAwesomeIcon
               icon={iconSrc}
-              className={`banner__icon h-[16px] w-[16px] ${iconStyle}`}
+              className={`banner__icon h-[12px] w-[12px] bg-neutral-grey-2 text-neutral-dark p-2 rounded-full mr-4 ${iconStyle}`}
             />
           )}
           <div className="banner__text">
             {titleText && (
-              <h1 className={`banner__text-title ${titleTextStyle}`}>
+              <h1 className={`banner__text-title text-h4 text-neutral-dark mb-2 ${titleTextStyle}`}>
                 {titleText}
               </h1>
             )}
-            <p className={`banner__text-description ${descriptionTextStyle}`}>
+            <p className={`banner__text-description text-body text-neutral-dark ${descriptionTextStyle}`}>
               {descriptionText}
             </p>
           </div>
           {closeIconSrc && (
             <FontAwesomeIcon
               icon={closeIconSrc}
-              className={`banner__icon h-[16px] w-[16px] ${closeIconStyle}`}
+              className={`banner__icon h-[16px] w-[16px] absolute right-2 top-2 text-neutral-dark cursor-pointer ${closeIconStyle}`}
               onClick={closeHandler}
             />
           )}
