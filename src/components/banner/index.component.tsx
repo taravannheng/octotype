@@ -3,11 +3,11 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface BannerProps {
-  bannerStyle: string;
-  iconStyle: string;
-  titleTextStyle: string;
-  descriptionTextStyle: string;
-  closeIconStyle: string;
+  bannerStyle?: string;
+  iconStyle?: string;
+  titleTextStyle?: string;
+  descriptionTextStyle?: string;
+  closeIconStyle?: string;
   iconSrc?: IconProp;
   closeIconSrc?: IconProp;
   titleText?: string;
