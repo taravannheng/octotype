@@ -1,4 +1,4 @@
-import { FC, useState, Fragment } from "react";
+import { FC, Fragment } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -12,6 +12,8 @@ interface BannerProps {
   closeIconSrc?: IconProp;
   titleText?: string;
   descriptionText: string;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Banner: FC<BannerProps> = ({
@@ -24,9 +26,9 @@ const Banner: FC<BannerProps> = ({
   closeIconSrc,
   titleText,
   descriptionText,
+  isOpen,
+  setIsOpen
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
-
   const closeHandler = () => {
     setIsOpen(false);
   };
