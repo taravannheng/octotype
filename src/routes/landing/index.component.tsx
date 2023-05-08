@@ -1,4 +1,5 @@
 import { FC, Fragment } from "react";
+import { faClose, faInfo } from "@fortawesome/free-solid-svg-icons";
 
 import WordCounter from "../../components/word-counter/index.component";
 import Timer from "../../components/timer/index.component";
@@ -17,8 +18,8 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
   return (
     <Fragment>
       <Modal modalStyle="lg:hidden">
-        <img src={Logo} alt="logo" />
-        <Banner titleText="Warning" descriptionText="This application is only available for desktop only!" titleTextStyle="text-status-error"  />
+        <img src={Logo} alt="logo" className="h-12 mb-16" />
+        <Banner titleText="Warning" descriptionText="This application is only available for desktop only!" titleTextStyle="text-status-error text-h4" iconSrc={faInfo} iconStyle="text-neutral-light bg-status-error" />
       </Modal>
       <div className={`landing hidden lg:block ${landingPageStyles}`}>
         <Header headerStyle="mb-36" />
