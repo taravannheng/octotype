@@ -5,8 +5,9 @@
 @tailwind utilities;
 
 body {
-  background-color: #262626;
-  margin: 0;
+  max-width: 1536px;
+  background-color: #121417;
+  margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
