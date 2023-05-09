@@ -30,7 +30,6 @@ module.exports = {
       "status-dark-error": "#ad0022",
       "status-light-error": "#ef084e",
       "status-warning": "#ffeb00",
-      "status-success": "#00d500",
     },
     fontFamily: {
       body: ["Roboto", "sans-serif"],
