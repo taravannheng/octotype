@@ -97,7 +97,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
           return (
             <span
               key={uuidv4()}
-              className="pointer-events-none text-status-error"
+              className="pointer-events-none text-status-dark-error"
             >
               {key}
             </span>

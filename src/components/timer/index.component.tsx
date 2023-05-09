@@ -31,7 +31,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
         }
   
         if (timer === 21) {
-          setTimerColor("text-status-error");
+          setTimerColor("text-status-light-error");
         }
   
         setTimer((prevTimer: number) => prevTimer - 1);
