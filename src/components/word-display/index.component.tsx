@@ -53,7 +53,7 @@ const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle, maxWord
 
   return (
     <div
-      className={`text-h3 outline-none overflow-hidden ${wordDisplayStyle}`}
+      className={`text-h4 outline-none overflow-hidden ${wordDisplayStyle}`}
     >
       {letterList.map((letter: any, index: any) => {
         return (
@@ -61,7 +61,6 @@ const WordDisplay: FC<WordDisplayProps> = ({ numWords, wordDisplayStyle, maxWord
             index={index}
             isLastLetter={letter.lastLetter}
             key={uuidv4()}
-            spanStyle='text-neutral-grey-4'
             text={letter.character}
           />
         );

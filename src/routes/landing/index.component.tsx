@@ -20,17 +20,13 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
   return (
     <Fragment>
       <Modal modalStyle="lg:hidden">
-        <img src={Logo} alt="logo" className="h-12 mb-16" />
-        <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Warning" descriptionText="This application is only available for desktop only!" titleTextStyle="text-status-light-error text-h4" iconSrc={faInfo} iconStyle="text-neutral-light bg-status-light-error" />
+        <img src={Logo} alt="logo" className="h-[100px] md:h-[200px] mb-[96px]" />
+        <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Alert" descriptionText="This application is only available for desktop only!" titleTextStyle="text-status-error text-h5" iconSrc={faInfo} iconStyle="text-neutral-light bg-status-error" />
       </Modal>
-      <div className={`landing hidden lg:block ${landingPageStyles}`}>
-        <Header headerStyle="mb-36" />
+      <div className={`landing w-full flex flex-col justify-center hidden lg:block ${landingPageStyles}`}>
+        <Header headerStyle="mb-24" />
         <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
           <Timer />
-          <InstructionText
-            text="Type the first letter to start..."
-            instructionTextStyle="animate-slow-blink"
-          />
           <WordCounter />
         </div>
         <WordDisplay

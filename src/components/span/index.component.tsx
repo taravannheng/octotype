@@ -10,7 +10,7 @@ import FirstKeyPressedContext from "../../contexts/first-key-pressed-context";
 import { isLetter } from "../../utils/helpers";
 
 interface SpanProps {
-  spanStyle: string;
+  spanStyle?: string;
   text: string;
   index: number;
   isLastLetter: boolean;
@@ -88,7 +88,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       onKeyDown={keyHandler}
       ref={spanRef}
       tabIndex={index}
-      className={`relative outline-none pointer-events-none ${spanStyle} ${
+      className={`relative outline-none pointer-events-none text-neutral-grey-3 ${spanStyle} ${
         isActive && "text-neutral-light"
       }  ${isPressed && "text-primary"}`}
     >
@@ -97,7 +97,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
           return (
             <span
               key={uuidv4()}
-              className="pointer-events-none text-status-dark-error"
+              className="pointer-events-none text-status-error"
             >
               {key}
             </span>

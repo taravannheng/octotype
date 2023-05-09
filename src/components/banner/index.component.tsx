@@ -36,7 +36,7 @@ const Banner: FC<BannerProps> = ({
   return (
     <Fragment>
       {isOpen && (
-        <div className={`banner flex flex-row relative bg-neutral-light p-4 relative w-full rounded ${bannerStyle}`}>
+        <div className={`banner flex flex-row relative bg-neutral-grey-4 p-4 relative w-full rounded ${bannerStyle}`}>
           {iconSrc && (
             <FontAwesomeIcon
               icon={iconSrc}
@@ -49,7 +49,7 @@ const Banner: FC<BannerProps> = ({
                 {titleText}
               </h1>
             )}
-            <p className={`banner__text-description text-body text-neutral-dark ${descriptionTextStyle}`}>
+            <p className={`banner__text-description text-body text-neutral-grey-1 ${descriptionTextStyle}`}>
               {descriptionText}
             </p>
           </div>
