@@ -19,60 +19,64 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     colors: {
-      'primary': "#0071ff",
-      "primary-dark": "#0066E5",
-      "neutral-light": "#fff",
-      "neutral-grey-1": "#f5f5f5",
-      "neutral-grey-2": "#d9d9d9",
-      "neutral-grey-3": "#9d9d9d",
-      "neutral-grey-4": "#555",
-      "neutral-dark": "#262626",
-      "status-dark-error": "#ad0022",
-      "status-light-error": "#ef084e",
-      "status-warning": "#ffeb00",
+      "primary": "#0071FF",
+      "neutral-light": "#FFF",
+      "neutral-grey-1": "#E2E2E2",
+      "neutral-grey-2": "#A5A5A5",
+      "neutral-grey-3": "#747474",
+      "neutral-grey-4": "#1E2023",
+      "neutral-dark": "#121417",
+      "status-error": "#C0334D",
+      "status-warning": "#F2E10D",
     },
     fontFamily: {
       body: ["Roboto", "sans-serif"],
     },
     fontSize: {
       h1: [
+        "4rem",
+        {
+          fontWeight: "900",
+        },
+      ],
+      h2: [
         "3rem",
         {
           fontWeight: "700",
         },
       ],
-      h2: [
-        "2rem",
+      h3: [
+        "2.25rem",
         {
           fontWeight: "700",
         },
       ],
-      h3: [
+      h4: [
         "1.5rem",
         {
           fontWeight: "500",
         },
       ],
-      h4: [
+      h5: [
         "1rem",
         {
           fontWeight: "500",
         },
       ],
-      body: [
+      body2: [
         "1rem",
         {
           fontWeight: "400",
         },
       ],
-      sub1: [
-        "0.75rem",
+      body1: [
+        "0.875rem",
         {
           fontWeight: "400",
         },
       ],
-      sub2: [
-        "0.625rem",
+      caption: [
+        "0.75rem",
         {
           fontWeight: "400",
         },
