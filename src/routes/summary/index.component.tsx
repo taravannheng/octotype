@@ -8,6 +8,7 @@ import Button from "../../components/button/index.component";
 import Modal from "../../components/modal/index.component";
 import Logo from "../../assets/logos/logo.png";
 import Banner from "../../components/banner/index.component";
+import ThemeContext from "../../contexts/theme-context";
 import TimerContext from "../../contexts/timer-context";
 import AccuracyContext from "../../contexts/accuracy-context";
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
@@ -28,6 +29,7 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = "" }) => {
   const { setIsFirstKeyPressed } = useContext(FirstKeyPressedContext);
   const { setTotalLetterTyped } = useContext(TotalLetterTypedContext);
   const { setWordCounter } = useContext(WordCounterContext);
+  const { isDarkTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const refreshHandler = () => {
@@ -55,15 +57,15 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = "" }) => {
           setIsOpen={setIsBannerOpen}
           titleText="Alert"
           descriptionText="This application is available for desktop only!"
-          titleTextStyle="text-dark-error text-h5"
+          titleTextStyle="text-dark-status-error text-h5"
           iconSrc={faInfo}
-          iconStyle="text-dark-white bg-dark-error"
+          iconStyle="text-dark-white bg-dark-status-error"
         />
       </Modal>
-      <div className={`summary min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen bg-dark-darkest ${summaryPageStyle}`}>
+      <div className={`summary min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen ${isDarkTheme ? "bg-dark-darkest" : "bg-light-light"} ${summaryPageStyle}`}>
         <Header headerStyle="mb-24 flex items-center justify-center" />
         <div className="summary-body flex flex-col items-center px-12 sm:px-24 lg:px-64">
-          <h1 className="text-h2 flex justify-center items-center mb-12 text-dark-white">
+          <h1 className={`text-h2 flex justify-center items-center mb-12 ${isDarkTheme ? 'text-dark-white' : 'text-light-dark'}`}>
             Your Stats
           </h1>
           <Dashboard

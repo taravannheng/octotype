@@ -27,8 +27,8 @@ module.exports = {
         "medium": "#97A6BA",
         "dark": "#506F95",
         "darkest": "#143052",
-        "error": "#FD3F62",
-        "warning": "#DCCD09",
+        "status-error": "#FD3F62",
+        "status-warning": "#DCCD09",
       },
       dark: {
         "primary": "#0071FF",
@@ -38,8 +38,8 @@ module.exports = {
         "medium": "#747474",
         "dark": "#1E2023",
         "darkest": "#121417",
-        "error": "#FD3F62",
-        "warning": "#F2E10D",
+        "status-error": "#FD3F62",
+        "status-warning": "#F2E10D",
       }
     },
     fontFamily: {

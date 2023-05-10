@@ -1,6 +1,8 @@
-import { FC, Fragment } from "react";
+import { FC, Fragment, useContext } from "react";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import ThemeContext from "../../contexts/theme-context";
 
 interface BannerProps {
   bannerStyle?: string;
@@ -29,6 +31,8 @@ const Banner: FC<BannerProps> = ({
   isOpen,
   setIsOpen
 }) => {
+  const { isDarkTheme } = useContext(ThemeContext);
+
   const closeHandler = () => {
     setIsOpen(false);
   };
@@ -36,11 +40,11 @@ const Banner: FC<BannerProps> = ({
   return (
     <Fragment>
       {isOpen && (
-        <div className={`banner flex flex-row relative bg-dark-dark p-4 relative w-full rounded ${bannerStyle}`}>
+        <div className={`banner flex flex-row relative p-4 relative w-full rounded-[1rem] ${isDarkTheme ? 'bg-dark-dark' : 'bg-light-white'} ${bannerStyle}`}>
           {iconSrc && (
             <FontAwesomeIcon
               icon={iconSrc}
-              className={`banner__icon h-[12px] w-[12px] min-w-[12px] max-w-[12px] max-h-[12px] min-h-[12px] bg-dark-light text-dark-darkest p-2 rounded-full mr-4 ${iconStyle}`}
+              className={`banner__icon h-[12px] w-[12px] min-w-[12px] max-w-[12px] max-h-[12px] min-h-[12px] p-2 rounded-full mr-4 ${iconStyle}`}
             />
           )}
           <div className="banner__text">
@@ -49,7 +53,7 @@ const Banner: FC<BannerProps> = ({
                 {titleText}
               </h1>
             )}
-            <p className={`banner__text-description text-body text-dark-white ${descriptionTextStyle}`}>
+            <p className={`banner__text-description text-body ${isDarkTheme ? 'text-dark-white' : 'text-light-darkest'} ${descriptionTextStyle}`}>
               {descriptionText}
             </p>
           </div>

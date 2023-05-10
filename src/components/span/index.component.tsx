@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
 import WordCounterContext from "../../contexts/word-counter-context";
+import ThemeContext from "../../contexts/theme-context";
 import TimerContext from "../../contexts/timer-context";
 import TotalLetterTypedContext from "../../contexts/total-letter-typed";
 import FirstKeyPressedContext from "../../contexts/first-key-pressed-context";
@@ -26,6 +27,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const { isFirstKeyPressed, setIsFirstKeyPressed } = useContext(
     FirstKeyPressedContext
   );
+  const { isDarkTheme } = useContext(ThemeContext);
   const { setTotalLetterTyped } = useContext(TotalLetterTypedContext);
   const { timer } = useContext(TimerContext);
   const { setWordCounter } = useContext(WordCounterContext);
@@ -88,16 +90,16 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       onKeyDown={keyHandler}
       ref={spanRef}
       tabIndex={index}
-      className={`relative outline-none pointer-events-none text-dark-light ${spanStyle} ${
-        (isActive && !isPressed) && "text-dark-white"
-      }  ${isPressed && "text-dark-primary"}`}
+      className={`relative outline-none pointer-events-none ${isDarkTheme ? 'text-dark-light' : 'text-light-medium'} ${spanStyle} ${
+        (isActive && !isPressed && isDarkTheme) && "text-dark-white"
+      } ${(isActive && !isPressed && !isDarkTheme) && "text-light-dark"}  ${isPressed && "text-light-primary text-dark-primary"}`}
     >
       {wrongKeys.map((key: string, index: number) => {
         if (index < 10) {
           return (
             <span
               key={uuidv4()}
-              className="pointer-events-none text-dark-error"
+              className="pointer-events-none text-dark-status-error"
             >
               {key}
             </span>
@@ -106,7 +108,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       })}
       <span className="relative mr-[2px] overflow-hidden">
         {(isActive && !isPressed) && <span
-          className="absolute top-0 left-[-4px] w-1 h-7 pt-2 bg-dark-white rounded-full animate-fast-blink"
+          className={`absolute top-0 left-[-4px] w-1 h-7 pt-2 rounded-full animate-fast-blink ${isDarkTheme ? 'bg-dark-white' : 'bg-light-dark'}`}
         ></span>}
         {text}
       </span>

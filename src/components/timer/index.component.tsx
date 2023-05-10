@@ -2,6 +2,7 @@ import { FC, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import TimerContext from "../../contexts/timer-context";
+import ThemeContext from "../../contexts/theme-context";
 import AccuracyContext from "../../contexts/accuracy-context";
 import TotalLetterTypedContext from "../../contexts/total-letter-typed";
 import CurrentLetterIndexContext from "../../contexts/current-letter-index-context";
@@ -15,6 +16,7 @@ interface TimerProps {
 
 const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   const { timer, setTimer } = useContext(TimerContext);
+  const { isDarkTheme } = useContext(ThemeContext);
   const { totalLetterTyped } = useContext(TotalLetterTypedContext);
   const { currentLetterIndex } = useContext(CurrentLetterIndexContext);
   const { isFirstKeyPressed } = useContext(FirstKeyPressedContext);
@@ -27,11 +29,17 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
       const interval = setInterval(() => {
         // set to 41 and 21 because react doesn't re-render immediately
         if (timer === 41) {
-          setTimerColor("text-dark-warning");
+          if (isDarkTheme) {
+            setTimerColor("text-dark-status-warning");
+          }
+
+          if (!isDarkTheme) {
+            setTimerColor("text-light-status-warning");
+          }
         }
   
         if (timer === 21) {
-          setTimerColor("text-dark-error");
+          setTimerColor("text-dark-status-error");
         }
   
         setTimer((prevTimer: number) => prevTimer - 1);
@@ -52,7 +60,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   }, [timer, isFirstKeyPressed]);
 
   return (
-    <span className={`text-h3 text-dark-white ${timerColor} ${timerStyle}`}>
+    <span className={`text-h3 ${isDarkTheme ? 'text-dark-white' : 'text-light-darkest'} ${timerColor} ${timerStyle}`}>
       {timer}
     </span>
   );
