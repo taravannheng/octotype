@@ -10,4 +10,5 @@ export const INITIAL_CONFIG = {
   TIMER: 60,
   TOTAL_LETTER_TYPED: 0,
   WORD_COUNTER: 0,
+  IS_DARK_THEME: true,
 }

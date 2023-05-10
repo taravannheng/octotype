@@ -1,4 +1,4 @@
-import { FC, Fragment, useState } from "react";
+import { FC, Fragment, useState, useContext } from "react";
 import { faClose, faInfo } from "@fortawesome/free-solid-svg-icons";
 
 import WordCounter from "../../components/word-counter/index.component";
@@ -9,6 +9,7 @@ import InstructionText from "../../components/instruction-text/index.component";
 import Modal from "../../components/modal/index.component";
 import Logo from '../../assets/logos/logo.png';
 import Banner from "../../components/banner/index.component";
+import ThemeContext from "../../contexts/theme-context";
 
 interface LandingPageProps {
   landingPageStyles?: string;
@@ -16,6 +17,7 @@ interface LandingPageProps {
 
 const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
   const [isBannerOpen, setIsBannerOpen] = useState(true);
+  const { isDarkTheme } = useContext(ThemeContext);
 
   return (
     <Fragment>
@@ -23,7 +25,7 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
         <img src={Logo} alt="logo" className="h-[100px] md:h-[200px] mb-[96px]" />
         <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Alert" descriptionText="This application is available for desktop only!" titleTextStyle="text-status-error text-h5" iconSrc={faInfo} iconStyle="text-neutral-light bg-status-error" />
       </Modal>
-      <div className={`landing w-full flex flex-col justify-center hidden lg:block ${landingPageStyles}`}>
+      <div className={`landing min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen flex flex-col justify-center hidden lg:block ${isDarkTheme ? 'bg-neutral-dark' : 'bg-neutral-light'} ${landingPageStyles}`}>
         <Header headerStyle="mb-24" />
         <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
           <Timer />
