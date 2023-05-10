@@ -21,7 +21,7 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
     <Fragment>
       <Modal modalStyle="lg:hidden">
         <img src={Logo} alt="logo" className="h-[100px] md:h-[200px] mb-[96px]" />
-        <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Alert" descriptionText="This application is only available for desktop only!" titleTextStyle="text-status-error text-h5" iconSrc={faInfo} iconStyle="text-neutral-light bg-status-error" />
+        <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Alert" descriptionText="This application is available for desktop only!" titleTextStyle="text-status-error text-h5" iconSrc={faInfo} iconStyle="text-neutral-light bg-status-error" />
       </Modal>
       <div className={`landing w-full flex flex-col justify-center hidden lg:block ${landingPageStyles}`}>
         <Header headerStyle="mb-24" />
