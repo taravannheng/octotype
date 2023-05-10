@@ -30,16 +30,16 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
         // set to 41 and 21 because react doesn't re-render immediately
         if (timer === 41) {
           if (isDarkTheme) {
-            setTimerColor("text-dark-status-warning");
+            setTimerColor("text-light-status-warning text-dark-status-warning");
           }
 
           if (!isDarkTheme) {
-            setTimerColor("text-light-status-warning");
+            setTimerColor("text-dark-status-warning text-light-status-warning");
           }
         }
   
         if (timer === 21) {
-          setTimerColor("text-dark-status-error");
+          setTimerColor("text-light-status-error text-dark-status-error");
         }
   
         setTimer((prevTimer: number) => prevTimer - 1);
