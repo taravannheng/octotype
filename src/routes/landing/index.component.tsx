@@ -23,9 +23,9 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
     <Fragment>
       <Modal modalStyle="lg:hidden">
         <img src={Logo} alt="logo" className="h-[100px] md:h-[200px] mb-[96px]" />
-        <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Alert" descriptionText="This application is available for desktop only!" titleTextStyle="text-status-error text-h5" iconSrc={faInfo} iconStyle="text-white bg-error" />
+        <Banner isOpen={isBannerOpen} setIsOpen={setIsBannerOpen} titleText="Alert" descriptionText="This application is available for desktop only!" titleTextStyle="text-dark-error text-h5" iconSrc={faInfo} iconStyle="text-dark-white bg-dark-error" />
       </Modal>
-      <div className={`landing min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen flex flex-col justify-center hidden lg:block ${isDarkTheme ? 'bg-darkest' : 'bg-white'} ${landingPageStyles}`}>
+      <div className={`landing min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen flex flex-col justify-center hidden lg:block ${isDarkTheme ? 'bg-dark-darkest' : 'bg-dark-white'} ${landingPageStyles}`}>
         <Header headerStyle="mb-24" />
         <div className="flex justify-between items-center px-12 sm:px-24 lg:px-64 mb-4">
           <Timer />

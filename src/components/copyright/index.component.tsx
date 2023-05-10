@@ -10,7 +10,7 @@ const Copyright: FC<CopyrightProps> = ({
   copyrightTextStyle = "",
 }) => {
   return (
-    <p className={`copyright text-caption text-light text-center min-w-full ${copyrightStyle}`}>
+    <p className={`copyright text-caption text-dark-light text-center min-w-full ${copyrightStyle}`}>
       <span className={`copyright__text ${copyrightTextStyle}`}>
         Copyright · {new Date().getFullYear()}
       </span>

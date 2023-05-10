@@ -21,18 +21,18 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "", cardStyle = "" }) 
             <Card
               titleText="Word Per Minute"
               descriptionText={wordCounter}
-              descriptionStyle="text-primary"
-              titleStyle="text-light text-body1"
-              cardStyle={`bg-dark ${cardStyle}`}
+              descriptionStyle="text-dark-primary"
+              titleStyle="text-dark-light text-body1"
+              cardStyle={`bg-dark-dark ${cardStyle}`}
             />
           </div>
           <div className="accuracy">
             <Card
               titleText="Accuracy"
               descriptionText={`${accuracy}%`}
-              descriptionStyle="text-primary"
-              titleStyle="text-light text-body1"
-              cardStyle={`bg-dark ${cardStyle}`}
+              descriptionStyle="text-dark-primary"
+              titleStyle="text-dark-light text-body1"
+              cardStyle={`bg-dark-dark ${cardStyle}`}
             />
           </div>
         </div>

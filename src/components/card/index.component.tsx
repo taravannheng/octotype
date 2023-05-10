@@ -10,14 +10,14 @@ interface CardProps {
 
 const Card: FC<CardProps> = ({
   cardStyle = "",
-  titleStyle = "text-darkest",
-  descriptionStyle = "text-primary",
+  titleStyle = "text-dark-darkest",
+  descriptionStyle = "text-dark-primary",
   titleText,
   descriptionText,
 }) => {
   return (
       <div
-        className={`card overflow-hidden relative bg-dark rounded-lg shadow-lg6 z-10 text-h3 flex items-center flex-col justify-center min-w-[320px] w-[320px] max-w-[320px] min-h-[240px] h-[240px] max-h-[240px] ${cardStyle}`}
+        className={`card overflow-hidden relative bg-dark-dark rounded-lg shadow-lg6 z-10 text-h3 flex items-center flex-col justify-center min-w-[320px] w-[320px] max-w-[320px] min-h-[240px] h-[240px] max-h-[240px] ${cardStyle}`}
       >
         <span className={`mb-6 ${titleStyle}`}>{titleText}</span>{" "}
         <span className={`text-h1 text-[80px] max-w-full truncate ${descriptionStyle}`}>

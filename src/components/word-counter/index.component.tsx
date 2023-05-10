@@ -11,7 +11,7 @@ const WordCounter: FC<WordCounterProps> = ({ wordCounterStyle, wordCounterTextSt
   const { wordCounter } = useContext(WordCounterContext);
 
   return (
-    <p className={`word-counter text-h5 text-white ${wordCounterStyle}`}>WORD COUNT: <span className={`word-counter__text ${wordCounterTextStyle}`}>{wordCounter}</span></p>
+    <p className={`word-counter text-h5 text-dark-white ${wordCounterStyle}`}>WORD COUNT: <span className={`word-counter__text ${wordCounterTextStyle}`}>{wordCounter}</span></p>
   )
 }
 

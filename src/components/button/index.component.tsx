@@ -18,7 +18,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`button max-w-full w-full bg-dark text-white hover:bg-primary focus:bg-primary focus:outline-none text-body2 rounded-lg py-3 px-4 ${buttonStyle}`}
+      className={`button max-w-full w-full bg-dark-dark text-dark-white hover:bg-dark-primary focus:bg-dark-primary focus:outline-none text-body2 rounded-lg py-3 px-4 ${buttonStyle}`}
     >
       {label}
       {iconSrc && (

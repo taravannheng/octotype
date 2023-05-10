@@ -25,14 +25,14 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
     >
       <div
         className={`toggle__track rounded-full min-w-full w-full max-w-full min-h-full h-full max-h-full transition-all duration-500 ${
-          isDarkTheme ? "bg-white" : "bg-primary"
+          isDarkTheme ? "bg-dark-white" : "bg-dark-primary"
         } ${trackStyle}`}
       ></div>
       <div
         className={`toggle__thumb min-w-[16px] w-[16px] max-w-[16px] min-h-[16px] h-[16px] max-h-[16px] rounded-full absolute top-[4px] transition-all duration-500 ${
           isDarkTheme
-            ? "left-[4px] bg-darkest"
-            : "left-[44px] bg-white"
+            ? "left-[4px] bg-dark-darkest"
+            : "left-[44px] bg-dark-white"
         } cursor-pointer ${thumbStyle}`}
         onClick={themeToggleHandler}
       ></div>
