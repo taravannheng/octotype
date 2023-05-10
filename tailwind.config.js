@@ -19,15 +19,28 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     colors: {
-      "primary": "#0071FF",
-      "white": "#FFF",
-      "lightest": "#E2E2E2",
-      "light": "#A5A5A5",
-      "medium": "#747474",
-      "dark": "#1E2023",
-      "darkest": "#121417",
-      "status-error": "#FD3F62",
-      "status-warning": "#F2E10D",
+      light: {
+        "primary": "#0071FF",
+        "white": "#FFF",
+        "lightest": "#FAFAFA",
+        "light": "#F1F2F4",
+        "medium": "#97A6BA",
+        "dark": "#506F95",
+        "darkest": "#143052",
+        "error": "#FD3F62",
+        "warning": "#DCCD09",
+      },
+      dark: {
+        "primary": "#0071FF",
+        "white": "#FFF",
+        "lightest": "#E2E2E2",
+        "light": "#A5A5A5",
+        "medium": "#747474",
+        "dark": "#1E2023",
+        "darkest": "#121417",
+        "error": "#FD3F62",
+        "warning": "#F2E10D",
+      }
     },
     fontFamily: {
       body: ["Roboto", "sans-serif"],
