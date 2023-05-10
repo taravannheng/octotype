@@ -27,11 +27,11 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
       const interval = setInterval(() => {
         // set to 41 and 21 because react doesn't re-render immediately
         if (timer === 41) {
-          setTimerColor("text-warning");
+          setTimerColor("text-status-warning");
         }
   
         if (timer === 21) {
-          setTimerColor("text-error");
+          setTimerColor("text-status-error");
         }
   
         setTimer((prevTimer: number) => prevTimer - 1);

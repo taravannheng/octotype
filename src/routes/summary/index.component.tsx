@@ -55,7 +55,7 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = "" }) => {
           setIsOpen={setIsBannerOpen}
           titleText="Alert"
           descriptionText="This application is available for desktop only!"
-          titleTextStyle="text-error text-h5"
+          titleTextStyle="text-status-error text-h5"
           iconSrc={faInfo}
           iconStyle="text-white bg-error"
         />

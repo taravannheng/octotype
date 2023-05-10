@@ -26,8 +26,8 @@ module.exports = {
       "medium": "#747474",
       "dark": "#1E2023",
       "darkest": "#121417",
-      "error": "#FD3F62",
-      "warning": "#F2E10D",
+      "status-error": "#FD3F62",
+      "status-warning": "#F2E10D",
     },
     fontFamily: {
       body: ["Roboto", "sans-serif"],
