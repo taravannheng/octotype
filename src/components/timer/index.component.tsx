@@ -21,7 +21,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   const { currentLetterIndex } = useContext(CurrentLetterIndexContext);
   const { isFirstKeyPressed } = useContext(FirstKeyPressedContext);
   const { setAccuracy } = useContext(AccuracyContext);
-  const [timerColor, setTimerColor] = useState("text-dark-white");
+  const [timerColor, setTimerColor] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,11 +30,12 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
         // set to 41 and 21 because react doesn't re-render immediately
         if (timer === 41) {
           if (isDarkTheme) {
+            // need to add text-light-status-warning as a fallback for dark theme because text-dark-status-warning does not takes effect
             setTimerColor("text-light-status-warning text-dark-status-warning");
           }
 
           if (!isDarkTheme) {
-            setTimerColor("text-dark-status-warning text-light-status-warning");
+            setTimerColor("text-light-status-warning");
           }
         }
   
