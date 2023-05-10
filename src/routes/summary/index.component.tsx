@@ -6,7 +6,7 @@ import Dashboard from "../../components/dashboard/index.component";
 import Header from "../../components/header/index.component";
 import Button from "../../components/button/index.component";
 import Modal from "../../components/modal/index.component";
-import Logo from '../../assets/logos/logo.png';
+import Logo from "../../assets/logos/logo.png";
 import Banner from "../../components/banner/index.component";
 import TimerContext from "../../contexts/timer-context";
 import AccuracyContext from "../../contexts/accuracy-context";
@@ -60,18 +60,22 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = "" }) => {
           iconStyle="text-neutral-light bg-status-error"
         />
       </Modal>
-      <div className={`summary ${summaryPageStyle}`}>
+      <div className={`summary min-w-full ${summaryPageStyle}`}>
         <Header headerStyle="mb-24 flex items-center justify-center" />
-        <div className="summary-body px-12 sm:px-24 lg:px-64">
+        <div className="summary-body flex flex-col items-center px-12 sm:px-24 lg:px-64">
           <h1 className="text-h2 flex justify-center items-center mb-12 text-neutral-light">
             Your Stats
           </h1>
-          <Dashboard dashboardStyle="flex justify-center items-center flex-row mb-8 px-44" />
-          <div className="button-container px-44">
+          <Dashboard
+            dashboardStyle="flex flex-row justify-center items-center mb-8 overflow-hidden gap-10"
+            cardStyle="lg:min-w-[240px] lg:w-[240px] lg:max-w-[240px] lg:min-h-[180px] lg:h-[180px] lg:max-h-[180px] xl:min-w-[320px] xl:w-[320px] xl:max-w-[320px] xl:min-h-[240px] xl:h-[240px] xl:max-h-[240px]"
+          />
+          <div className="button-container min-w-[520px] w-[520px] max-w-[520px] xl:min-w-[680px] xl:w-[680px] xl:max-w-[680px] flex justify-center items-center">
             <Button
               label="Refresh"
               iconSrc={faRotateRight}
               onClick={refreshHandler}
+              buttonStyle="min-w-full w-full max-w-full"
             />
           </div>
         </div>
