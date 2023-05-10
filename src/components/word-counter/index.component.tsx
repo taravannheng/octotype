@@ -16,7 +16,7 @@ const WordCounter: FC<WordCounterProps> = ({
   const { isDarkTheme } = useContext(ThemeContext);
 
   return (
-    <p className={`word-counter text-h5 ${isDarkTheme ? 'text-dark-white' : 'text-light-darkest'} ${wordCounterStyle}`}>
+    <p className={`word-counter text-h5 ${isDarkTheme ? 'text-dark-white' : 'text-light-dark'} ${wordCounterStyle}`}>
       WORD COUNT:{" "}
       <span className={`word-counter__text ${wordCounterTextStyle}`}>
         {wordCounter}

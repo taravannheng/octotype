@@ -60,7 +60,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   }, [timer, isFirstKeyPressed]);
 
   return (
-    <span className={`text-h3 ${isDarkTheme ? 'text-dark-white' : 'text-light-darkest'} ${timerColor} ${timerStyle}`}>
+    <span className={`text-h3 ${isDarkTheme ? 'text-dark-white' : 'text-light-dark'} ${timerColor} ${timerStyle}`}>
       {timer}
     </span>
   );
