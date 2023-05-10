@@ -19,7 +19,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   const { currentLetterIndex } = useContext(CurrentLetterIndexContext);
   const { isFirstKeyPressed } = useContext(FirstKeyPressedContext);
   const { setAccuracy } = useContext(AccuracyContext);
-  const [timerColor, setTimerColor] = useState("text-neutral-light");
+  const [timerColor, setTimerColor] = useState("text-white");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,11 +27,11 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
       const interval = setInterval(() => {
         // set to 41 and 21 because react doesn't re-render immediately
         if (timer === 41) {
-          setTimerColor("text-status-warning");
+          setTimerColor("text-warning");
         }
   
         if (timer === 21) {
-          setTimerColor("text-status-error");
+          setTimerColor("text-error");
         }
   
         setTimer((prevTimer: number) => prevTimer - 1);
@@ -52,7 +52,7 @@ const Timer: FC<TimerProps> = ({ timerStyle = "" }) => {
   }, [timer, isFirstKeyPressed]);
 
   return (
-    <span className={`text-h3 text-neutral-light ${timerColor} ${timerStyle}`}>
+    <span className={`text-h3 text-white ${timerColor} ${timerStyle}`}>
       {timer}
     </span>
   );

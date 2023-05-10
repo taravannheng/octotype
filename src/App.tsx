@@ -8,6 +8,7 @@ import { TimerProvider } from "./contexts/timer-context";
 import { FirstKeyPressedProvider } from "./contexts/first-key-pressed-context";
 import { TotalLetterTypedProvider } from "./contexts/total-letter-typed";
 import { AccuracyProvider } from "./contexts/accuracy-context";
+import { ThemeProvider } from "./contexts/theme-context";
 import { ROUTES } from "./utils/constants";
 import SummaryPagePrivate from "./routes/private-summary/index.component";
 
@@ -24,10 +25,11 @@ const App: FC = () => {
           <FirstKeyPressedProvider>
             <TotalLetterTypedProvider>
               <AccuracyProvider>
-                <Router>
-                  <Routes>
-                    <Route path={ROUTES.LANDING} element={<LandingPage />} />
-                    <Route
+                <ThemeProvider>
+                  <Router>
+                    <Routes>
+                      <Route path={ROUTES.LANDING} element={<LandingPage />} />
+                      <Route
                       path={ROUTES.SUMMARY}
                       element={<SummaryPagePrivate />}
                     >
@@ -39,9 +41,10 @@ const App: FC = () => {
                           </Suspense>
                         }
                       />
-                    </Route>
-                  </Routes>
-                </Router>
+                      </Route>
+                    </Routes>
+                  </Router>
+                </ThemeProvider>
               </AccuracyProvider>
             </TotalLetterTypedProvider>
           </FirstKeyPressedProvider>

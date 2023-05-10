@@ -88,8 +88,8 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       onKeyDown={keyHandler}
       ref={spanRef}
       tabIndex={index}
-      className={`relative outline-none pointer-events-none text-neutral-grey-3 ${spanStyle} ${
-        isActive && "text-neutral-light"
+      className={`relative outline-none pointer-events-none text-light ${spanStyle} ${
+        (isActive && !isPressed) && "text-white"
       }  ${isPressed && "text-primary"}`}
     >
       {wrongKeys.map((key: string, index: number) => {
@@ -97,7 +97,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
           return (
             <span
               key={uuidv4()}
-              className="pointer-events-none text-status-error"
+              className="pointer-events-none text-error"
             >
               {key}
             </span>
@@ -106,7 +106,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
       })}
       <span className="relative mr-[2px] overflow-hidden">
         {(isActive && !isPressed) && <span
-          className="absolute top-0 left-[-4px] w-1 h-7 pt-2 bg-neutral-light rounded-full animate-fast-blink"
+          className="absolute top-0 left-[-4px] w-1 h-7 pt-2 bg-white rounded-full animate-fast-blink"
         ></span>}
         {text}
       </span>

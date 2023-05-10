@@ -22,8 +22,8 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "", cardStyle = "" }) 
               titleText="Word Per Minute"
               descriptionText={wordCounter}
               descriptionStyle="text-primary"
-              titleStyle="text-neutral-grey-2 text-body1"
-              cardStyle={`bg-neutral-grey-4 ${cardStyle}`}
+              titleStyle="text-light text-body1"
+              cardStyle={`bg-dark ${cardStyle}`}
             />
           </div>
           <div className="accuracy">
@@ -31,8 +31,8 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "", cardStyle = "" }) 
               titleText="Accuracy"
               descriptionText={`${accuracy}%`}
               descriptionStyle="text-primary"
-              titleStyle="text-neutral-grey-2 text-body1"
-              cardStyle={`bg-neutral-grey-4 ${cardStyle}`}
+              titleStyle="text-light text-body1"
+              cardStyle={`bg-dark ${cardStyle}`}
             />
           </div>
         </div>

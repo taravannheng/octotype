@@ -36,27 +36,27 @@ const Banner: FC<BannerProps> = ({
   return (
     <Fragment>
       {isOpen && (
-        <div className={`banner flex flex-row relative bg-neutral-grey-4 p-4 relative w-full rounded ${bannerStyle}`}>
+        <div className={`banner flex flex-row relative bg-dark p-4 relative w-full rounded ${bannerStyle}`}>
           {iconSrc && (
             <FontAwesomeIcon
               icon={iconSrc}
-              className={`banner__icon h-[12px] w-[12px] min-w-[12px] max-w-[12px] max-h-[12px] min-h-[12px] bg-neutral-grey-2 text-neutral-dark p-2 rounded-full mr-4 ${iconStyle}`}
+              className={`banner__icon h-[12px] w-[12px] min-w-[12px] max-w-[12px] max-h-[12px] min-h-[12px] bg-light text-darkest p-2 rounded-full mr-4 ${iconStyle}`}
             />
           )}
           <div className="banner__text">
             {titleText && (
-              <h1 className={`banner__text-title text-h4 text-neutral-dark mb-2 ${titleTextStyle}`}>
+              <h1 className={`banner__text-title text-h4 text-darkest mb-2 ${titleTextStyle}`}>
                 {titleText}
               </h1>
             )}
-            <p className={`banner__text-description text-body text-neutral-grey-1 ${descriptionTextStyle}`}>
+            <p className={`banner__text-description text-body text-white ${descriptionTextStyle}`}>
               {descriptionText}
             </p>
           </div>
           {closeIconSrc && (
             <FontAwesomeIcon
               icon={closeIconSrc}
-              className={`banner__icon h-[16px] w-[16px] min-w-[16px] max-w-[16px] max-h-[16px] min-h-[16px] absolute right-2 top-2 text-neutral-dark cursor-pointer ${closeIconStyle}`}
+              className={`banner__icon h-[16px] w-[16px] min-w-[16px] max-w-[16px] max-h-[16px] min-h-[16px] absolute right-2 top-2 text-darkest cursor-pointer ${closeIconStyle}`}
               onClick={closeHandler}
             />
           )}

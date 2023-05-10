@@ -12,7 +12,7 @@ const InstructionText: FC<InstructionTextProps> = ({ instructionTextStyle = '', 
 
   return (
     <Fragment>
-      {!isFirstKeyPressed && <p className={`instruction-text text-neutral-light text-body ${instructionTextStyle}`}>{text}</p>}
+      {!isFirstKeyPressed && <p className={`instruction-text text-white text-body ${instructionTextStyle}`}>{text}</p>}
     </Fragment>
   )
 }

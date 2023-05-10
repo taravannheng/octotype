@@ -55,15 +55,15 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = "" }) => {
           setIsOpen={setIsBannerOpen}
           titleText="Alert"
           descriptionText="This application is available for desktop only!"
-          titleTextStyle="text-status-error text-h5"
+          titleTextStyle="text-error text-h5"
           iconSrc={faInfo}
-          iconStyle="text-neutral-light bg-status-error"
+          iconStyle="text-white bg-error"
         />
       </Modal>
-      <div className={`summary min-w-full ${summaryPageStyle}`}>
+      <div className={`summary min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen bg-darkest ${summaryPageStyle}`}>
         <Header headerStyle="mb-24 flex items-center justify-center" />
         <div className="summary-body flex flex-col items-center px-12 sm:px-24 lg:px-64">
-          <h1 className="text-h2 flex justify-center items-center mb-12 text-neutral-light">
+          <h1 className="text-h2 flex justify-center items-center mb-12 text-white">
             Your Stats
           </h1>
           <Dashboard
