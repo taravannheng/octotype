@@ -22,7 +22,11 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`button max-w-full w-full hover:bg-dark-primary focus:bg-light-primary focus:bg-dark-primary focus:outline-none text-body2 rounded-lg py-3 px-4 ${isDarkTheme ? 'bg-dark-dark text-dark-white' : 'bg-light-white text-light-darkest focus:text-light-white'} ${buttonStyle}`}
+      className={`button max-w-full w-full hover:bg-dark-primary focus:bg-light-primary focus:bg-dark-primary focus:outline-none text-body2 rounded-lg py-3 px-4 ${
+        isDarkTheme
+          ? "bg-dark-dark text-dark-white"
+          : "bg-light-white text-light-darkest hover:text-light-white focus:text-light-white"
+      } ${buttonStyle}`}
     >
       {label}
       {iconSrc && (
