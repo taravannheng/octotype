@@ -17,6 +17,7 @@ const ThemeToggle: FC<ThemeToggleProps> = ({
 
   const themeToggleHandler = () => {
     setIsDarkTheme((prevTheme: boolean) => !prevTheme);
+    sessionStorage.setItem("isDarkTheme", String(!isDarkTheme));
   };
 
   return (
