@@ -2,6 +2,7 @@ import React, { FC, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import LandingPage from "./routes/landing/index.component";
+import ProgressIndicator from "./components/progress-indicator/index.component";
 import { CurrentLetterIndexContextProvider } from "./contexts/current-letter-index-context";
 import { WordCounterProvider } from "./contexts/word-counter-context";
 import { TimerProvider } from "./contexts/timer-context";
@@ -36,7 +37,7 @@ const App: FC = () => {
                       <Route
                         path={ROUTES.SUMMARY}
                         element={
-                          <Suspense fallback={"Loading..."}>
+                          <Suspense fallback={<ProgressIndicator />}>
                             <SummaryPage />
                           </Suspense>
                         }
