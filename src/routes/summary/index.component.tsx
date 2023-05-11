@@ -63,8 +63,10 @@ const Summary: FC<SummaryProps> = ({ summaryPageStyle = "" }) => {
         />
       </Modal>
       <div className={`summary min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen ${isDarkTheme ? "bg-dark-darkest" : "bg-light-light"} ${summaryPageStyle}`}>
-        <Header headerStyle="mb-24 flex items-center justify-center" />
-        <div className="summary-body flex flex-col items-center px-12 sm:px-24 lg:px-64">
+        <div className="header-container w-full flex justify-center items-center">
+          <Header headerStyle="mb-24 min-w-[520px] w-[520px] max-w-[520px] xl:min-w-[680px] xl:w-[680px] xl:max-w-[680px] flex flex-row !justify-between items-center !px-0" />
+        </div>
+        <div className="summary-body flex flex-col items-center px-12 sm:px-24 lg:px-64 relative">
           <h1 className={`text-h2 flex justify-center items-center mb-12 ${isDarkTheme ? 'text-dark-white' : 'text-light-dark'}`}>
             Your Stats
           </h1>
