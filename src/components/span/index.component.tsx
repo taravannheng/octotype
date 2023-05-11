@@ -21,6 +21,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const [wrongKeys, setWrongKeys] = useState<string[]>([]);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isPressed, setIsPressed] = useState<boolean>(false);
+  const [activeLetterColor, setActiveLetterColor] = useState<string>("text-dark-white");
   const { currentLetterIndex, setCurrentLetterIndex } = useContext(
     CurrentLetterIndexContext
   );
@@ -85,14 +86,24 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
     }
   }, [currentLetterIndex, index, timer, wrongKeys]);
 
+  useEffect(() => {
+    if (isDarkTheme) {
+      setActiveLetterColor('text-dark-white');
+    }
+
+    if (!isDarkTheme) {
+      setActiveLetterColor('!text-light-dark');
+    }
+  }, [isDarkTheme, setActiveLetterColor]);
+
   return (
     <span
       onKeyDown={keyHandler}
       ref={spanRef}
       tabIndex={index}
       className={`relative outline-none pointer-events-none ${isDarkTheme ? 'text-dark-light' : 'text-light-medium'} ${spanStyle} ${
-        (isActive && !isPressed && isDarkTheme) && "text-dark-white"
-      } ${(isActive && !isPressed && !isDarkTheme) && "text-light-dark"}  ${isPressed && "text-light-primary text-dark-primary"}`}
+        (isActive && !isPressed) && activeLetterColor
+      }  ${isPressed && "text-light-primary text-dark-primary"}`}
     >
       {wrongKeys.map((key: string, index: number) => {
         if (index < 10) {
