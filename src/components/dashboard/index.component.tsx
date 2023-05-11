@@ -20,7 +20,7 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "", cardStyle = "" }) 
           <div className="wpm">
             <Card
               titleText="Word Per Minute"
-              descriptionText={wordCounter}
+              animateNumber={{number: wordCounter, text: ''}}
               descriptionStyle="text-dark-primary"
               titleStyle="text-dark-light text-body1"
               cardStyle={`bg-dark-dark ${cardStyle}`}
@@ -29,7 +29,7 @@ const Dashboard: FC<DashboardProps> = ({ dashboardStyle = "", cardStyle = "" }) 
           <div className="accuracy">
             <Card
               titleText="Accuracy"
-              descriptionText={`${accuracy}%`}
+              animateNumber={{number: accuracy, text: '%'}}
               descriptionStyle="text-dark-primary"
               titleStyle="text-dark-light text-body1"
               cardStyle={`bg-dark-dark ${cardStyle}`}

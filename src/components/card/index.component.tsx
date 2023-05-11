@@ -1,13 +1,15 @@
 import { FC, useContext } from "react";
 
 import ThemeContext from "../../contexts/theme-context";
+import AnimateNumber from "../animate-number/index.component";
 
 interface CardProps {
   cardStyle?: string;
   titleStyle?: string;
   descriptionStyle?: string;
   titleText: string;
-  descriptionText: string;
+  descriptionText?: string;
+  animateNumber?: {number: number, text: string};
 }
 
 const Card: FC<CardProps> = ({
@@ -16,6 +18,7 @@ const Card: FC<CardProps> = ({
   descriptionStyle = "text-dark-primary",
   titleText,
   descriptionText,
+  animateNumber,
 }) => {
   const { isDarkTheme } = useContext(ThemeContext);
 
@@ -29,7 +32,8 @@ const Card: FC<CardProps> = ({
       <span
         className={`text-h1 text-[80px] max-w-full truncate ${descriptionStyle}`}
       >
-        {descriptionText}
+        {descriptionText && descriptionText}
+        {animateNumber && <AnimateNumber targetNumber={animateNumber} />}
       </span>
     </div>
   );
