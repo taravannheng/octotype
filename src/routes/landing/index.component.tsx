@@ -38,7 +38,7 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
         />
       </Modal>
       <div
-        className={`landing min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen overflow-hidden flex flex-col justify-center lg:block transition-bg duration-300 ${
+        className={`landing min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen overflow-hidden flex flex-col justify-center hidden lg:block transition-bg duration-300 ${
           isDarkTheme ? "bg-dark-darkest" : "bg-light-light"
         } ${landingPageStyles}`}
       >
