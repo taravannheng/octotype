@@ -126,7 +126,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
         ></span>}
         {text}
       </span>
-      <input type="text" ref={inputRef} onChange={keyHandler} className="hidden" />
+      <input type="text" ref={inputRef} onChange={keyHandler} className="absolute w-1 bg-dark-darkest" />
     </span>
   );
 };
