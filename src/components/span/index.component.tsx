@@ -33,6 +33,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   const { timer } = useContext(TimerContext);
   const { setWordCounter } = useContext(WordCounterContext);
   const spanRef = useRef<HTMLSpanElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // TODO: update the below event type to Keyboard Event
   const keyHandler = (event: any) => {
@@ -80,6 +81,8 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
     if (currentLetterIndex === index) {
       setIsActive(true);
 
+      inputRef.current!.focus();
+
       if (timer !== 0) {
         spanRef.current!.focus();
       }
@@ -123,6 +126,7 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
         ></span>}
         {text}
       </span>
+      <input type="text" ref={inputRef} onChange={keyHandler} className="hidden" />
     </span>
   );
 };
