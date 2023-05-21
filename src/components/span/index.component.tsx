@@ -78,10 +78,12 @@ const Span: FC<SpanProps> = ({ spanStyle, text, index, isLastLetter }) => {
   };
 
   useEffect(() => {
+    inputRef.current!.focus();
+  }, [isActive]);
+
+  useEffect(() => {
     if (currentLetterIndex === index) {
       setIsActive(true);
-
-      inputRef.current!.focus();
 
       if (timer !== 0) {
         spanRef.current!.focus();
