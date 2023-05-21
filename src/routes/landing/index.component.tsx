@@ -21,7 +21,7 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
 
   return (
     <Fragment>
-      {/* <Modal modalStyle="lg:hidden">
+      <Modal modalStyle="lg:hidden">
         <img
           src={Logo}
           alt="logo"
@@ -36,7 +36,7 @@ const LandingPage: FC<LandingPageProps> = ({ landingPageStyles = "" }) => {
           iconSrc={faInfo}
           iconStyle="text-dark-white bg-dark-status-error"
         />
-      </Modal> */}
+      </Modal>
       <div
         className={`landing min-w-screen w-screen max-w-screen min-h-screen h-screen max-h-screen overflow-hidden flex flex-col justify-center lg:block transition-bg duration-300 ${
           isDarkTheme ? "bg-dark-darkest" : "bg-light-light"
